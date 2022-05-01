@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<style>
+h1 {
+  color: rgb(83, 241, 96);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 300%;
+}
+p  {
+  color: rgb(143, 238, 151);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 120%;
+}
+label {
+  color: rgb(147, 231, 154);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 160%;
+}
+</style>
+<head>
+<title>MP3ify</title>
+</head>
+<body bgcolor="#000000" style="overflow: hidden;">
+<center>
+
+<h1 style="position:relative; left:0px; top:50px;">MP3ify</h1>
+<img src="{{url_for('static', filename='logo2.png')}}" style="position:relative; left:-140px; top:-50px;width:80px;height:80px;"/>
+
+<p style="position:relative; left:0px; top:-25px;">
+  Are you a Spotify user who wants to listen offline but does not want to pay for a premium plan? <br> 
+  MP3ify is the solution for you!
+</p>
+
+<p style="position:relative; left:0px; top:-25px;">
+  MP3ify works by directly downloading .mp3's of your requested songs from YouTube!
+</p>
+
+<h1 style="font-size: 250%; position:relative; left:0px; top:-25px;">
+  Benefits of MP3ify
+</h1>
+
+<p style="font-size: 200%; position:relative; left:-400px; top:-25px">
+  Fast
+</p>
+<p style="position:relative; left:-400px; top:-25px">
+  MP3ify works quickly, only <br>
+  taking about 1 minute per <br>
+  song to download! Other apps <br>
+  record each song, taking much <br>
+  longer.
+</p>
+
+<p style="font-size: 200%; position:relative; left:0px; top:-240px;">
+  Free
+</p>
+<p style="position:relative; left:0px;top:-240px;">
+  MP3ify is completely free to use! <br>
+  Other apps such as Sidify require <br>
+  you to buy the app. 
+</p>
+
+<p style="font-size: 200%; position:relative; left:400px; top:-410px;">
+  Web-Based
+</p>
+<p style="position:relative; left:400px; top:-410px">
+  MP3ify requires no download! <br>
+  Just paste in your link and <br>
+  download a .zip containing all <br>
+  your songs!
+</p>
+
+<form class="grid" action="/result" method="POST" style="position:relative; top:-325px">
+
+    <label for="link">Paste your Spotify playlist link:</label>
+    <input type="text" id="link" name="link" style="
+    background-color:#a2ffa5;
+    border:none;
+    color: rgb(24, 77, 0);
+    padding: 10px 10px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    position:relative; left:0px; top:-3px;"
+    ><br><br>
+    
+    <input type="submit" value="CONVERT!" style="
+    background-color:#4CAF50;
+    border:none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    position:relative; left:0px; top:10px;
+    ">
+
+    {% if link %}
+    <p><br>Download here:</p>
+    <a href="http://127.0.0.1:5000/download" style="font-size: 200%; color:rgb(63, 190, 248)">{{folder}}<br><br></a>
+    {% endif %}
+
+    {% if error %}
+    <p><br>Invalid playlist link. Make sure your playlist is public.</p>
+    {% endif %}
+
+</form>
+
+
+
+</center>
+</body>
+</html>
